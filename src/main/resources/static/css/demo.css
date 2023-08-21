@@ -1,0 +1,65 @@
+#canvas-container {
+  width: min(100%, 500px);
+  aspect-ratio: 1/1;
+  box-sizing: border-box;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thin-border {
+  border: 1px solid black;
+}
+
+.bold-big-font {
+  font-family: 'Nunito Sans';
+  font-weight: 700;
+  font-size: 30px;
+}
+
+#startButton {
+  background-color: #447dea;
+  border: 2px solid rgba(83, 81, 81, 0.863);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#startButton:hover {
+  background-color: #0c5aec;
+}
+#startButton:active {
+  background-color: #00328f;
+}
+
+#restartGame {
+  background-color: #ffffff;
+  border: 2px solid rgb(83, 81, 81);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #212121;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#restartGame:hover {
+  background-color: #bdc0c5;
+}
+#restartGame:active {
+  background-color: #696969;
+}
+
+.main-content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.dont-show {
+  display: none;
+}

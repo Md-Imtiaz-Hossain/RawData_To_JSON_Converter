@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!--TODO: Change this-->
+    <meta content="Author Name" name="author"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <link href="/image/site-icon/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>Welcome</title>
+</head>
+<body>
+<!--.............Header................-->
+<header>
+    <div class="header">
+        <a class="demo" href="">JSON Converter</a>
+        <nav>
+            <a class="nav-links active" href="index.html">Home</a>
+            <a class="nav-links" th:href="@{/result}">Result</a>
+
+        </nav>
+    </div>
+</header>
+<hr/>
+
+<!--.............Main Content................-->
+<main class="main-content">
+    <div class="about-us">
+        <h2>Welcome to</h2>
+        <h1>Our Converter</h1>
+        <div class="paragraph">
+            <p>
+                The Java-based Human-Readable Data to JSON Converter is a tool that transforms user-provided
+                human-readable data into JSON format. This facilitates easy data interchange between users and computer
+                systems. The converter validates, structures, and processes input data, creating JSON output that can be
+                used in various applications and databases.
+            </p>
+        </div>
+    </div>
+    <div>
+        <section class="features">
+            <div class="feature">
+                <img alt="Feature 1" src="/image/feature/img.png"/>
+                <h2>JSON Converter</h2>
+                <p>
+                    We are taking your data with human-readable format and convert into JSON format. So that you can use
+                    it in your personal work.
+                </p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!--.............. Footer ...............-->
+<section class="cta-section">
+    <h4>Ready to take your online presence to the next level?</h4>
+    <a class="btn-reach-out" href="contact.html">Reach out to us</a>
+</section>
+<hr/>
+<footer>
+    <div class="link">
+        <h1 class="demo-studio">JSON Converter</h1>
+    </div>
+
+    <div class="social-right">
+        <div class="icon">
+            <img alt="Facebook" class="social-media" src="/image/footer-icon/facebook.png"/>
+            <img alt="Twitter" class="social-media" src="/image/footer-icon/twitter.png"/>
+            <img alt="Whatsapp" class="social-media" src="/image/footer-icon/whatsapp.png"/>
+            <img alt="LinkedIn" class="social-media" src="/image/footer-icon/linkedin.png"/>
+        </div>
+    </div>
+
+    <div class="right">
+        <p>@ 2023 Java To JSON Converter</p>
+    </div>
+</footer>
+</body>
+</html>
