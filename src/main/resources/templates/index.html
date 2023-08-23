@@ -1,101 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark justify-content-between">
     <div class="container">
         <a class="navbar-brand">FORM</a>
         <div class="nav-item active">
-            <a class="nav-link" href="admin.html">Admin View</a>
+            <a class="nav-link" href="result.html">Admin View</a>
         </div>
     </div>
 </nav>
 
 <div class="form_Container container">
-    <form method="POST" th:action="@{/submit-form}" th:object="${FormData}">
+    <form method="POST">
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Number</label>
-                <input id="validationDefault01" th:field="*{unitNumber}" th:value="${FormData.unitNumber}" name="unitNumber"
-                       type="text" class="form-control" placeholder="Unit Number" required>
+                <input type="text" class="form-control" name="unit_Number" placeholder="Unit Number" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Name</label>
-                <input type="text" class="form-control" th:field="*{unitName}" th:value="${FormData.unitNumber}"
-                       name="unitNumber" placeholder="Unit Name" required>
+                <input type="text" class="form-control" name="unit_Name" placeholder="Unit Name" required>
             </div>
         </div>
 
-        <h4><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>
-        <!--        <h4 onclick="addNewTopic()"><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>-->
-<!--        <div class="topics">-->
-<!--            <div class="topic topic0">-->
-<!--                <div class="form-row">-->
-<!--                    <div class="col-md-12 mb-3">-->
-<!--                        <input th:field="*{topics.topicName}" th:value="${topics.topicName}" name="unitNumber" type="text"-->
-<!--                               class="form-control"-->
-<!--                               id="topic_Name" placeholder="Topic Name" required>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; add content &ndash;&gt;-->
+        <h4 onclick="addNewTopic()"><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>
+        <div class="topics">
+            <div class="topic topic0">
+                <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                        <input type="text" class="form-control" id="topic_Name" name="topic_Name" placeholder="Topic Name" required>
+                    </div>
+                </div>
+                <!-- add content -->
 
-<!--                <div class="add_Content_Fields">-->
-<!--                    <h5><strong>Add Content <i class="fas fa-plus-circle icon content_Icon"></i></strong></h5>-->
-<!--                    <div class="contents contents0">-->
-<!--                        <div class="content">-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="col-md-12 mb-3">-->
-<!--                                    <label for="validationDefault02">Text</label>-->
-<!--                                    <input type="text" class="form-control" th:field="*{}" th:value="${data.unitNumber}" name="unitNumber" id="validationDefault02" placeholder="Text"-->
-<!--                                           required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="col-md-6 mb-3">-->
-<!--                                    <label for="validationDefault03">text alt ( seperate by ';' )</label>-->
-<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="text_alt"-->
-<!--                                           placeholder="text_alt" required>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-6 mb-3">-->
-<!--                                    <label for="validationDefault04">Question</label>-->
-<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="question"-->
-<!--                                           placeholder="Question" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="form-row">-->
-<!--                                <div class="col-md-6 mb-3">-->
-<!--                                    <div class="col-md-12 mb-3 Alt_Questions">-->
-<!--                                        <h5><strong>Alt Questions <i-->
-<!--                                                class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-6 mb-3">-->
-<!--                                    <label for="validationDefault05">Keywords</label>-->
-<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="keywords"-->
-<!--                                           placeholder="Keywords" required>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="add_Content_Fields">
+                    <h5><strong>Add Content <i class="fas fa-plus-circle icon content_Icon"></i></strong></h5>
+                    <div class="contents contents0">
+                        <div class="content">
+                            <div class="form-row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="validationDefault02">Text</label>
+                                    <input type="text" class="form-control" name="text" id="text" placeholder="Text" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationDefault03">text alt ( seperate by ';' )</label>
+                                    <input type="text" class="form-control" name="text_alt" id="text_alt"  placeholder="text_alt" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationDefault04">Question</label>
+                                    <input type="text" class="form-control" name="question" id="question" placeholder="Question" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="col-md-12 mb-3 Alt_Questions">
+                                        <h5><strong>Alt Questions <i class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationDefault05">Keywords</label>
+                                    <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Keywords" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!--            </div>-->
-<!--        </div>-->
+            </div>
+        </div>
         <button class="btn btn-primary" type="submit">Submit form</button>
 
         <button class="btn btn-primary" type="reset">Reset form</button>
@@ -104,50 +90,44 @@
 
 </body>
 <style>
-    .form_Container {
+    .form_Container{
         background-color: rgb(189, 189, 189);
-        padding: 20px;
+        padding:20px;
         margin-top: 5%;
         margin-bottom: 5%;
         max-width: 550px;
     }
-
-    .topic {
-        background-color: rgb(255, 174, 67);
-        padding: 10px;
-        margin-bottom: 20px;
+    .topic{
+        background-color:rgb(255, 174, 67);
+        padding:10px;
+        margin-bottom:20px;
     }
-
-    .icon {
-        color: red;
-        cursor: pointer;
+    .icon{
+        color:red;
+        cursor:pointer;
     }
-
-    .content {
-        background-color: rgba(140, 255, 220, 0.514);
-        padding: 10px;
-        margin-top: 10px;
+    .content{
+        background-color:rgba(140, 255, 220, 0.514);
+        padding:10px;
+        margin-top:10px;
     }
 </style>
 
-<script src="https://cdn.socket.io/3.1.3/socket.io.min.js"
-        integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
-        crossorigin="anonymous"></script>
-<!--<script src="app.js"></script>-->
+<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
 <script>
     const socket = io();
-    var topicsLength = 0;
+    var topicsLength=0;
     //consists topics array [topic[content[...]],..]
     const topics = [];
-    const alt_questions = [];
+    const alt_questions=[];
     const form = document.querySelector('form');
     const topicSection = document.querySelector('.topics');
 
     form.addEventListener('submit', handleForm);
-    const addTopic = (id) => {
+    const addTopic =(id)=>{
         return `
 <div class="form-row">
-<h4>Topic ${id + 1}</h4>
+<h4>Topic ${id+1}</h4>
     <div class="col-md-12 mb-3">
         <input type="text" class="form-control" name="topic_Name" id="topic_Name"  placeholder="Topic Name" required>
     </div>
@@ -191,7 +171,7 @@
 `;
     }
 
-    const addContentTemplate = (id) => {
+    const addContentTemplate =(id)=>{
         return `
   <div class="form-row">
       <div class="col-md-12 mb-3">
@@ -229,30 +209,30 @@
     const firstContent = firstTopic.querySelector('.content');
     const firstAlt_question = firstContent.querySelector('.Alt_Questions_Icon');
     console.log(firstAlt_question);
-    firstAlt_question.addEventListener('click', () => {
+    firstAlt_question.addEventListener('click',()=>{
         console.log('alt questions');
         const altDiv = document.createElement('div');
-        altDiv.innerHTML = `
+        altDiv.innerHTML=`
   <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
   `;
         firstContent.querySelector('.Alt_Questions').appendChild(altDiv);
     })
 
-    firstTopic.querySelector('.content_Icon').addEventListener('click', () => {
+    firstTopic.querySelector('.content_Icon').addEventListener('click',()=>{
         console.log('adding in first topic');
         const content = addContentTemplate(topicsLength);
         const contentDiv = document.createElement('div');
-        contentDiv.classList.add('content', `content${topicsLength}`);
-        contentDiv.innerHTML = content;
+        contentDiv.classList.add('content',`content${topicsLength}`);
+        contentDiv.innerHTML=content;
         const topicContent = firstTopic.querySelector('.contents')
         topicContent.appendChild(contentDiv);
 
         console.log(contentDiv);
         const Alt_questionEvent = contentDiv.querySelector('.Alt_Questions_Icon');
         console.log(Alt_questionEvent);
-        Alt_questionEvent.addEventListener('click', () => {
+        Alt_questionEvent.addEventListener('click',()=>{
             const altDiv = document.createElement('div');
-            altDiv.innerHTML = `
+            altDiv.innerHTML=`
     <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
     `;
             contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
@@ -261,33 +241,33 @@
     })
 
 
-    const addNewTopic = () => {
+
+    const addNewTopic = ()=>{
         topicsLength++;
-        console.log(topicsLength);
-        ;
+        console.log(topicsLength);;
         const topic = addTopic(topicsLength);
         const topicDiv = document.createElement('div');
-        topicDiv.classList.add('topic', `topic${topicsLength}`)
-        topicDiv.innerHTML = topic;
+        topicDiv.classList.add('topic',`topic${topicsLength}`)
+        topicDiv.innerHTML=topic;
         topicSection.appendChild(topicDiv);
 
         console.log(topicDiv);
 
 
-        topicDiv.querySelector('.content_Icon').addEventListener('click', () => {
+        topicDiv.querySelector('.content_Icon').addEventListener('click',()=>{
             const content = addContentTemplate(topicsLength);
             const contentDiv = document.createElement('div');
-            contentDiv.classList.add('content', `content${topicsLength}`);
-            contentDiv.innerHTML = content;
+            contentDiv.classList.add('content',`content${topicsLength}`);
+            contentDiv.innerHTML=content;
             topicDiv.querySelector('.contents').appendChild(contentDiv);
 
             const Alt_questionEvent = contentDiv.querySelector('.Alt_Questions_Icon');
             console.log(Alt_questionEvent);
 
-            Alt_questionEvent.addEventListener('click', () => {
+            Alt_questionEvent.addEventListener('click',()=>{
                 console.log('click')
                 const altDiv = document.createElement('div');
-                altDiv.innerHTML = `
+                altDiv.innerHTML=`
       <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
       `;
                 contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
@@ -296,9 +276,9 @@
 
         const Alt_questionEvent = topicDiv.querySelector('.Alt_Questions_Icon');
         console.log(Alt_questionEvent);
-        Alt_questionEvent.addEventListener('click', () => {
+        Alt_questionEvent.addEventListener('click',()=>{
             const altDiv = document.createElement('div');
-            altDiv.innerHTML = `
+            altDiv.innerHTML=`
     <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
     `;
             topicDiv.querySelector('.Alt_Questions').appendChild(altDiv);
@@ -314,29 +294,29 @@
 
         const unit_number = val.unit_Number.value;
         const unit_name = val.unit_Name.value;
-        const new_Topic = val.topic?.value || '';
+        const new_Topic = val.topic?.value|| '';
         const topic_name = val.topic_Name.value;
 
         const topicsQuery = document.querySelectorAll('.topic');
-        const jsonTopics = [];
+        const jsonTopics=[];
 
-        for (i = 0; i < topicsQuery.length; i++) {
+        for (i=0; i<topicsQuery.length;i++){
             console.log(i);
             const topic_name = topicsQuery[i].querySelector('#topic_Name').value;
             const topicContents = topicsQuery[i].querySelectorAll('.content');
 
-            const JsonTopicContents = []
+            const JsonTopicContents= []
 
             for (j = 0; j < topicContents.length; j++) {
 
-                var values = [];
+                var values=[];
                 var text = topicContents[j].querySelector('#text');
                 var text_alt = topicContents[j].querySelector('#text_alt');
                 var question = topicContents[j].querySelector('#question');
                 var keywords = topicContents[j].querySelector('#keywords');
                 var fields = topicContents[j].querySelectorAll('#alt_questions');
 
-                for (var k = 0; k < fields.length; k++) {
+                for (var k = 0; k < fields.length; k++){
                     values.push(fields[k].value);
                 }
 
@@ -351,14 +331,14 @@
                 }
 
             }
-            topic = {topic_number: i + 1, topic_name, contents: JsonTopicContents};
+            topic={ topic_number:i+1,topic_name, contents:JsonTopicContents };
             jsonTopics.push(topic);
         }
         // console.log(jsonTopics);
         const JSONobj = {
             unit_number,
             unit_name,
-            topics: jsonTopics
+            topics:jsonTopics
         }
 
         console.log(JSONobj);
@@ -366,234 +346,10 @@
 
     }
 
-    socket.on('updatedData', () => {
+    socket.on('updatedData',()=>{
         alert('success');
         form.reset();
     })
 
-
 </script>
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8"/>-->
-<!--    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>-->
-<!--    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>-->
-<!--    &lt;!&ndash;TODO: Change this&ndash;&gt;-->
-<!--    <meta content="Author Name" name="author"/>-->
-<!--    <link href="/css/styles.css" rel="stylesheet"/>-->
-<!--    <link href="/image/site-icon/favicon.ico" rel="icon" type="image/x-icon"/>-->
-<!--    <title>Welcome</title>-->
-<!--    <style>-->
-<!--        .cta-section {-->
-<!--            text-align: center;-->
-<!--            padding: 40px 0;-->
-<!--        }-->
-
-<!--        .contact-form {-->
-<!--            text-align: left;-->
-<!--            max-width: 400px;-->
-<!--            margin: 0 auto;-->
-<!--            padding: 20px;-->
-<!--            background-color: #dad7d7;-->
-<!--            border-radius: 10px;-->
-<!--            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);-->
-<!--        }-->
-
-<!--        .buttons {-->
-<!--            text-align: center;-->
-<!--            margin-top: 20px;-->
-<!--        }-->
-
-<!--        .buttons button {-->
-<!--            margin: 0 10px;-->
-<!--        }-->
-
-<!--        .form-group {-->
-<!--            margin-bottom: 20px;-->
-<!--        }-->
-
-<!--        h4 {-->
-<!--            margin-bottom: 15px;-->
-<!--        }-->
-
-<!--        label {-->
-<!--            display: block;-->
-<!--            font-weight: bold;-->
-<!--            margin-bottom: 5px;-->
-<!--        }-->
-
-<!--        input[type="text"],-->
-<!--        input[type="email"],-->
-<!--        textarea {-->
-<!--            width: 100%;-->
-<!--            padding: 10px;-->
-<!--            border: 1px solid #ccc;-->
-<!--            border-radius: 5px;-->
-<!--        }-->
-
-<!--        textarea {-->
-<!--            resize: vertical;-->
-<!--        }-->
-
-<!--        button {-->
-<!--            background-color: #007bff;-->
-<!--            color: #ffffff;-->
-<!--            padding: 10px 20px;-->
-<!--            border: none;-->
-<!--            border-radius: 5px;-->
-<!--            cursor: pointer;-->
-<!--            justify-items: center;-->
-<!--        }-->
-
-<!--        button:hover {-->
-<!--            background-color: #0056b3;-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash;.............Header................&ndash;&gt;-->
-<!--<header>-->
-<!--    <div class="header">-->
-<!--        <a class="demo" href="">JSON Converter</a>-->
-<!--        <nav>-->
-<!--            <a class="nav-links active" href="index.html">Home</a>-->
-<!--            <a class="nav-links" th:href="@{/result}">Result</a>-->
-
-<!--        </nav>-->
-<!--    </div>-->
-<!--</header>-->
-<!--<hr/>-->
-
-<!--&lt;!&ndash;.............Main Content................&ndash;&gt;-->
-<!--<main class="main-content">-->
-<!--    <div class="about-us">-->
-<!--        <h2>Welcome to</h2>-->
-<!--        <h1>Our Converter</h1>-->
-<!--        <div class="paragraph">-->
-<!--            <p>-->
-<!--                The Java-based Human-Readable Data to JSON Converter is a tool that transforms user-provided-->
-<!--                human-readable data into JSON format. This facilitates easy data interchange between users and computer-->
-<!--                systems. The converter validates, structures, and processes input data, creating JSON output that can be-->
-<!--                used in various applications and databases.-->
-<!--            </p>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <section class="features">-->
-<!--            <div class="feature">-->
-<!--                <img alt="Feature 1" src="/image/feature/img.png"/>-->
-<!--                <h2>JSON Converter</h2>-->
-<!--                <p>-->
-<!--                    We are taking your data with human-readable format and convert into JSON format. So that you can use-->
-<!--                    it in your personal work.-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        </section>-->
-<!--    </div>-->
-<!--</main>-->
-
-<!--&lt;!&ndash;.............. Footer ...............&ndash;&gt;-->
-<!--<section class="cta-section">-->
-<!--    <h4>Submit your text to JSON Convert! </h4>-->
-<!--    <div class="contact-form">-->
-<!--&lt;!&ndash;        <form>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="name">Name:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input type="text" id="name" name="name" placeholder="Your Name" required>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="email">Email:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input type="email" id="email" name="email" placeholder="Your Email" required>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="message">Message:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="form-group buttons">&ndash;&gt;-->
-<!--&lt;!&ndash;                <button type="submit">Submit</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                <button type="reset" style="background-color: red">Reset</button>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </form>&ndash;&gt;-->
-
-<!--        <form id="jsonForm">-->
-<!--            <label for="unitNumber">Unit Number:</label>-->
-<!--            <input type="text" id="unitNumber" name="unitNumber" value="1" readonly><br><br>-->
-
-<!--            <label for="unitName">Unit Name:</label>-->
-<!--            <input type="text" id="unitName" name="unitName"><br><br>-->
-
-<!--            <div id="topicsContainer">-->
-<!--                <div class="topic">-->
-<!--                    <label for="topicNumber">Topic Number:</label>-->
-<!--                    <input type="number" class="topicNumber" name="topicNumber[]" value="1"><br><br>-->
-
-<!--                    <label for="topicName">Topic Name:</label>-->
-<!--                    <input type="text" class="topicName" name="topicName[]"><br><br>-->
-
-<!--                    <div class="contentsContainer">-->
-<!--                        <div class="content">-->
-<!--                            &lt;!&ndash; Content fields here &ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <button type="button" id="addTopic">Add Topic</button><br><br>-->
-
-<!--            <button type="submit">Generate JSON</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</section>-->
-<!--<hr/>-->
-<!--<footer>-->
-<!--    <div class="link">-->
-<!--        <h1 class="demo-studio">JSON Converter</h1>-->
-<!--    </div>-->
-
-<!--    <div class="social-right">-->
-<!--        <div class="icon">-->
-<!--            <img alt="Facebook" class="social-media" src="/image/footer-icon/facebook.png"/>-->
-<!--            <img alt="Twitter" class="social-media" src="/image/footer-icon/twitter.png"/>-->
-<!--            <img alt="Whatsapp" class="social-media" src="/image/footer-icon/whatsapp.png"/>-->
-<!--            <img alt="LinkedIn" class="social-media" src="/image/footer-icon/linkedin.png"/>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="right">-->
-<!--        <p>@ 2023 Java To JSON Converter</p>-->
-<!--    </div>-->
-<!--</footer>-->
-
-<!--<script>-->
-<!--    document.addEventListener("DOMContentLoaded", function() {-->
-<!--        const addTopicButton = document.getElementById("addTopic");-->
-<!--        const topicsContainer = document.getElementById("topicsContainer");-->
-
-<!--        addTopicButton.addEventListener("click", function() {-->
-<!--            const newTopic = document.createElement("div");-->
-<!--            newTopic.classList.add("topic");-->
-<!--            newTopic.innerHTML = `-->
-<!--            <label for="topicNumber">Topic Number:</label>-->
-<!--            <input type="number" class="topicNumber" name="topicNumber[]" value="1"><br><br>-->
-
-<!--            <label for="topicName">Topic Name:</label>-->
-<!--            <input type="text" class="topicName" name="topicName[]"><br><br>-->
-
-<!--            <div class="contentsContainer">-->
-<!--                <div class="content">-->
-<!--                    &lt;!&ndash; Content fields here &ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        `;-->
-<!--            topicsContainer.appendChild(newTopic);-->
-<!--        });-->
-<!--    });-->
-
-<!--</script>-->
-
-<!--</body>-->
-<!--</html>-->

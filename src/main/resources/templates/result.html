@@ -4,95 +4,9 @@
     <meta charset="UTF-8"/>
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!--TODO: Change this-->
-    <meta content="Author Name" name="author"/>
-    <link href="/css/styles.css" rel="stylesheet"/>
-    <link href="/image/site-icon/favicon.ico" rel="icon" type="image/x-icon"/>
     <title>Result</title>
-    <style>
-        .content {
-            width: 60%;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            margin: 5px auto auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-    </style>
 </head>
 <body>
-<!--.............Header................-->
-<header>
-    <div class="header">
-        <a class="demo" href="">JSON Converter</a>
-        <nav>
-            <a class="nav-links " th:href="@{/}">Home</a>
-            <a class="nav-links active" th:href="@{/result}">Result</a>
 
-        </nav>
-    </div>
-</header>
-<hr/>
-<!--.............Main Content................-->
-<main>
-    <div class="content">
-        <h2>Result List</h2>
-        <table>
-            <thead>
-            <tr>
-                <th>SL</th>
-                <th>JSON Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="d : ${data}">
-                <td th:text="${d.unitNumber}"></td>
-                <td>30</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</main>
-
-
-<!--.............. Footer ...............-->
-<hr/>
-<footer>
-    <div class="link">
-        <h1 class="demo-studio">JSON Converter</h1>
-    </div>
-
-    <div class="social-right">
-        <div class="icon">
-            <img alt="Facebook" class="social-media" src="/image/footer-icon/facebook.png"/>
-            <img alt="Twitter" class="social-media" src="/image/footer-icon/twitter.png"/>
-            <img alt="Whatsapp" class="social-media" src="/image/footer-icon/whatsapp.png"/>
-            <img alt="LinkedIn" class="social-media" src="/image/footer-icon/linkedin.png"/>
-        </div>
-    </div>
-
-    <div class="right">
-        <p>@ 2023 Java To JSON Converter</p>
-    </div>
-</footer>
 </body>
 </html>
