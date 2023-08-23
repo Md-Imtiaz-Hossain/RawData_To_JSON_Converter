@@ -1,111 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8"/>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <!--TODO: Change this-->
-  <meta content="Author Name" name="author"/>
-  <link href="/css/styles.css" rel="stylesheet"/>
-  <link href="/image/site-icon/favicon.ico" rel="icon" type="image/x-icon"/>
-  <title>Founders</title>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!--TODO: Change this-->
+    <meta content="Author Name" name="author"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <link href="/image/site-icon/favicon.ico" rel="icon" type="image/x-icon"/>
+    <title>Result</title>
+    <style>
+        .content {
+            width: 60%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 5px auto auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
 </head>
 <body>
 <!--.............Header................-->
 <header>
-  <div class="header">
-    <a class="demo" href="">Web Studio</a>
-    <nav>
-      <a class="nav-links" href="index.html">Home</a>
-      <a class="nav-links active" href="founders.html">Founders</a>
-    </nav>
-  </div>
+    <div class="header">
+        <a class="demo" href="">JSON Converter</a>
+        <nav>
+            <a class="nav-links " th:href="@{/}">Home</a>
+            <a class="nav-links active" th:href="@{/result}">Result</a>
+
+        </nav>
+    </div>
 </header>
 <hr/>
-
 <!--.............Main Content................-->
-<main class="main-content-founder">
-  <div class="summary">
-    <h2>Founders</h2>
-    <p>
-      Welcome to the Founders page of Our Fictitious Company! Meet the brilliant minds behind our success. Our
-      founders have brought together their expertise, passion, and drive to create a company dedicated to
-      providing innovative web design solutions.
-    </p>
-    <p>
-      Our company was established in 2010 by John Doe, a visionary entrepreneur with a deep understanding of the
-      digital landscape. With a background in technology and a passion for design, John set out to build a team of
-      talented individuals who shared his vision of delivering exceptional web experiences.
-    </p>
-    <p>
-      Alongside John, Jane Smith joined as a co-founder and brought her technical prowess as the Chief Technology
-      Officer. Her expertise in cutting-edge technologies and attention to detail have played a pivotal role in
-      the success of our projects.
-    </p>
-    <p>
-      As the Creative Director and another co-founder, Mike Johnson's artistic flair and innovative thinking have
-      shaped our company's unique brand identity. His ability to push boundaries and think outside the box has
-      garnered recognition for our visually stunning designs.
-    </p>
-    <p>
-      Together, our founders have built a company known for its commitment to client satisfaction, attention to
-      detail, and the ability to deliver high-quality web solutions. We invite you to learn more about each of our
-      founders and their contributions to our company's success.
-    </p>
-  </div>
-
-  <div class="founders">
-    <div class="founder">
-      <img alt="Founder 1" src="/image/founders/img_1.png"/>
-      <h3>John Doe</h3>
-      <p>Founder & CEO</p>
-      <blockquote>
-        "John is a visionary leader who has been instrumental in shaping our company's success. His dedication,
-        strategic thinking, and passion for innovation have propelled us to new heights."
-      </blockquote>
+<main>
+    <div class="content">
+        <h2>Result List</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>SL</th>
+                <th>JSON Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>30</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="founder">
-      <img alt="Founder 2" src="/image/founders/img_2.png"/>
-      <h3>Sarah Smith</h3>
-      <p>Co-founder & CTO</p>
-      <blockquote>
-        "Sarah is a brilliant technologist with a keen eye for detail. Her expertise in cutting-edge technologies
-        and commitment to delivering excellence make her an invaluable asset to our team."
-      </blockquote>
-    </div>
-    <div class="founder">
-      <img alt="Founder 3" src="/image/founders/img_3.png"/>
-      <h3>Mike Johnson</h3>
-      <p>Co-founder & Creative Director</p>
-      <blockquote>
-        "Mike's creative genius and artistic flair have shaped our company's unique brand identity. His ability
-        to think outside the box and create captivating designs sets us apart from the competition."
-      </blockquote>
-    </div>
-  </div>
-
 </main>
 
 
 <!--.............. Footer ...............-->
 <hr/>
 <footer>
-  <div class="link">
-    <h1 class="demo-studio">JSON Converter</h1>
-  </div>
-
-  <div class="social-right">
-    <div class="icon">
-      <img alt="Facebook" class="social-media" src="/image/footer-icon/facebook.png"/>
-      <img alt="Twitter" class="social-media" src="/image/footer-icon/twitter.png"/>
-      <img alt="Whatsapp" class="social-media" src="/image/footer-icon/whatsapp.png"/>
-      <img alt="LinkedIn" class="social-media" src="/image/footer-icon/linkedin.png"/>
+    <div class="link">
+        <h1 class="demo-studio">JSON Converter</h1>
     </div>
-  </div>
 
-  <div class="right">
-    <p>@ 2023 Java To JSON Converter</p>
-  </div>
+    <div class="social-right">
+        <div class="icon">
+            <img alt="Facebook" class="social-media" src="/image/footer-icon/facebook.png"/>
+            <img alt="Twitter" class="social-media" src="/image/footer-icon/twitter.png"/>
+            <img alt="Whatsapp" class="social-media" src="/image/footer-icon/whatsapp.png"/>
+            <img alt="LinkedIn" class="social-media" src="/image/footer-icon/linkedin.png"/>
+        </div>
+    </div>
+
+    <div class="right">
+        <p>@ 2023 Java To JSON Converter</p>
+    </div>
 </footer>
 </body>
 </html>
