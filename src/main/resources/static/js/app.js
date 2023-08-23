@@ -1,18 +1,18 @@
-const socket = io();
-var topicsLength=0;
+// const socket = io();
+var topicsLength = 0;
 //consists topics array [topic[content[...]],..]
 const topics = [];
-const alt_questions=[];
+const alt_questions = [];
 const form = document.querySelector('form');
 const topicSection = document.querySelector('.topics');
 
-// form.addEventListener('submit', handleForm);
-const addTopic =(id)=>{
-  return `
+form.addEventListener('submit', handleForm);
+const addTopic = (id) => {
+    return `
 <div class="form-row">
-<h4>Topic ${id+1}</h4>
+<h4>Topic ${id + 1}</h4>
     <div class="col-md-12 mb-3">
-        <input type="text" class="form-control" name="topic_Name" id="topic_Name"  placeholder="Topic Name" required>
+        <input type="text" class="form-control" name="topicName" id="topicName"  placeholder="Topic Name" required>
     </div>
 </div>
 <!-- add content -->
@@ -30,7 +30,7 @@ const addTopic =(id)=>{
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="validationDefault03">text alt ( seperate by ';' )</label>
-              <input type="text" class="form-control" name="text_alt" id="text_alt"  placeholder="text_alt" required>
+              <input type="text" class="form-control" name="textAlt" id="textAlt"  placeholder="textAlt" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="validationDefault04">Question</label>
@@ -54,8 +54,8 @@ const addTopic =(id)=>{
 `;
 }
 
-const addContentTemplate =(id)=>{
-  return `
+const addContentTemplate = (id) => {
+    return `
   <div class="form-row">
       <div class="col-md-12 mb-3">
           <label for="validationDefault02">Text</label>
@@ -65,7 +65,7 @@ const addContentTemplate =(id)=>{
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="validationDefault03">text alt ( seperate by ';' )</label>
-        <input type="text" class="form-control" name="text_alt" id="text_alt"  placeholder="text_alt" required>
+        <input type="text" class="form-control" name="textAlt" id="textAlt"  placeholder="textAlt" required>
       </div>
       <div class="col-md-6 mb-3">
         <label for="validationDefault04">Question</label>
@@ -92,147 +92,155 @@ console.log(firstTopic);
 const firstContent = firstTopic.querySelector('.content');
 const firstAlt_question = firstContent.querySelector('.Alt_Questions_Icon');
 console.log(firstAlt_question);
-firstAlt_question.addEventListener('click',()=>{
-  console.log('alt questions');
-  const altDiv = document.createElement('div');
-  altDiv.innerHTML=`
+firstAlt_question.addEventListener('click', () => {
+    console.log('alt questions');
+    const altDiv = document.createElement('div');
+    altDiv.innerHTML = `
   <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
   `;
-  firstContent.querySelector('.Alt_Questions').appendChild(altDiv);
+    firstContent.querySelector('.Alt_Questions').appendChild(altDiv);
 })
 
-firstTopic.querySelector('.content_Icon').addEventListener('click',()=>{
-  console.log('adding in first topic');
-  const content = addContentTemplate(topicsLength);
-  const contentDiv = document.createElement('div');
-  contentDiv.classList.add('content',`content${topicsLength}`);
-  contentDiv.innerHTML=content;
-  const topicContent = firstTopic.querySelector('.contents')
-  topicContent.appendChild(contentDiv);
-
-  console.log(contentDiv);
-  const Alt_questionEvent = contentDiv.querySelector('.Alt_Questions_Icon');
-  console.log(Alt_questionEvent);
-  Alt_questionEvent.addEventListener('click',()=>{
-    const altDiv = document.createElement('div');
-    altDiv.innerHTML=`
-    <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
-    `;
-    contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
-  })
-
-})
-
-
-
-const addNewTopic = ()=>{
-  topicsLength++;
-  console.log(topicsLength);;
-  const topic = addTopic(topicsLength);
-  const topicDiv = document.createElement('div');
-  topicDiv.classList.add('topic',`topic${topicsLength}`)
-  topicDiv.innerHTML=topic;
-  topicSection.appendChild(topicDiv);
-
-  console.log(topicDiv);
-
-
-  topicDiv.querySelector('.content_Icon').addEventListener('click',()=>{
+firstTopic.querySelector('.content_Icon').addEventListener('click', () => {
+    console.log('adding in first topic');
     const content = addContentTemplate(topicsLength);
     const contentDiv = document.createElement('div');
-    contentDiv.classList.add('content',`content${topicsLength}`);
-    contentDiv.innerHTML=content;
-    topicDiv.querySelector('.contents').appendChild(contentDiv);
+    contentDiv.classList.add('content', `content${topicsLength}`);
+    contentDiv.innerHTML = content;
+    const topicContent = firstTopic.querySelector('.contents')
+    topicContent.appendChild(contentDiv);
 
+    console.log(contentDiv);
     const Alt_questionEvent = contentDiv.querySelector('.Alt_Questions_Icon');
     console.log(Alt_questionEvent);
-
-    Alt_questionEvent.addEventListener('click',()=>{
-      console.log('click')
-      const altDiv = document.createElement('div');
-      altDiv.innerHTML=`
-      <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
-      `;
-      contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
-    })
-  })
-
-  const Alt_questionEvent = topicDiv.querySelector('.Alt_Questions_Icon');
-  console.log(Alt_questionEvent);
-  Alt_questionEvent.addEventListener('click',()=>{
-    const altDiv = document.createElement('div');
-    altDiv.innerHTML=`
+    Alt_questionEvent.addEventListener('click', () => {
+        const altDiv = document.createElement('div');
+        altDiv.innerHTML = `
     <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
     `;
-    topicDiv.querySelector('.Alt_Questions').appendChild(altDiv);
-  })
+        contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
+    })
 
-}
-
-function handleForm(e) {
-
-  e.preventDefault();
-  const val = e.target;
-  // let contents = [];
-
-  const unit_number = val.unit_Number.value;
-  const unit_name = val.unit_Name.value;
-  const new_Topic = val.topic?.value|| '';
-  const topic_name = val.topic_Name.value;
-
-  const topicsQuery = document.querySelectorAll('.topic');
-  const jsonTopics=[];
-
-  for (i=0; i<topicsQuery.length;i++){
-    console.log(i);
-    const topic_name = topicsQuery[i].querySelector('#topic_Name').value;
-    const topicContents = topicsQuery[i].querySelectorAll('.content');
-
-    const JsonTopicContents= []
-
-    for (j = 0; j < topicContents.length; j++) {
-
-      var values=[];
-      var text = topicContents[j].querySelector('#text');
-      var text_alt = topicContents[j].querySelector('#text_alt');
-      var question = topicContents[j].querySelector('#question');
-      var keywords = topicContents[j].querySelector('#keywords');
-      var fields = topicContents[j].querySelectorAll('#alt_questions');
-
-      for (var k = 0; k < fields.length; k++){
-        values.push(fields[k].value);
-      }
-
-
-      JsonTopicContents[j] = {
-        paragraph_id: j + 1,
-        text: text.value,
-        text_alt: text_alt.value.split(';'),
-        question: question.value,
-        alt_questions: values,
-        keywords: keywords.value.split(';')
-      }
-
-    }
-    topic={ topic_number:i+1,topic_name, contents:JsonTopicContents };
-    jsonTopics.push(topic);
-  }
-  // console.log(jsonTopics);
-  const JSONobj = {
-    unit_number,
-    unit_name,
-    topics:jsonTopics
-  }
-
-  console.log(JSONobj);
-  socket.emit('handleForm', JSONobj);
-
-}
-
-socket.on('updatedData',()=>{
-  alert('success');
-  form.reset();
 })
 
 
+const addNewTopic = () => {
+    topicsLength++;
+    console.log(topicsLength);
+    ;
+    const topic = addTopic(topicsLength);
+    const topicDiv = document.createElement('div');
+    topicDiv.classList.add('topic', `topic${topicsLength}`)
+    topicDiv.innerHTML = topic;
+    topicSection.appendChild(topicDiv);
+
+    console.log(topicDiv);
+
+
+    topicDiv.querySelector('.content_Icon').addEventListener('click', () => {
+        const content = addContentTemplate(topicsLength);
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('content', `content${topicsLength}`);
+        contentDiv.innerHTML = content;
+        topicDiv.querySelector('.contents').appendChild(contentDiv);
+
+        const Alt_questionEvent = contentDiv.querySelector('.Alt_Questions_Icon');
+        console.log(Alt_questionEvent);
+
+        Alt_questionEvent.addEventListener('click', () => {
+            console.log('click')
+            const altDiv = document.createElement('div');
+            altDiv.innerHTML = `
+      <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
+      `;
+            contentDiv.querySelector('.Alt_Questions').appendChild(altDiv);
+        })
+    })
+
+    const Alt_questionEvent = topicDiv.querySelector('.Alt_Questions_Icon');
+    console.log(Alt_questionEvent);
+    Alt_questionEvent.addEventListener('click', () => {
+        const altDiv = document.createElement('div');
+        altDiv.innerHTML = `
+    <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
+    `;
+        topicDiv.querySelector('.Alt_Questions').appendChild(altDiv);
+    })
+
+}
+
+async function handleForm(e) {
+    e.preventDefault();
+    const val = e.target;
+    // let contents = [];
+
+    const unitNumber = val.unitNumber.value;
+    const unitName = val.unitName.value;
+    const newTopic = val.topic?.value || '';
+    const topicName = val.topicName.value;
+
+    const topicsQuery = document.querySelectorAll('.topic');
+    const jsonTopics = [];
+
+    for (i = 0; i < topicsQuery.length; i++) {
+        console.log(i);
+        const topicName = topicsQuery[i].querySelector('#topicName').value;
+        const topicContents = topicsQuery[i].querySelectorAll('.content');
+
+        const JsonTopicContents = []
+
+        for (j = 0; j < topicContents.length; j++) {
+
+            var values = [];
+            var text = topicContents[j].querySelector('#text');
+            var textAlt = topicContents[j].querySelector('#textAlt');
+            var question = topicContents[j].querySelector('#question');
+            var keywords = topicContents[j].querySelector('#keywords');
+            var fields = topicContents[j].querySelectorAll('#altQuestions');
+
+            for (var k = 0; k < fields.length; k++) {
+                values.push(fields[k].value);
+            }
+
+
+            JsonTopicContents[j] = {
+                paragraph_id: j + 1,
+                text: text.value,
+                textAlt: textAlt.value.split(';'),
+                question: question.value,
+                altQuestions: values,
+                keywords: keywords.value.split(';')
+            }
+
+        }
+        topic = {topicNumber: i + 1, topicName, contents: JsonTopicContents};
+        jsonTopics.push(topic);
+    }
+    // console.log(jsonTopics);
+    const JSONobj = {
+        unitNumber,
+        unitName,
+        topics: jsonTopics
+    }
+
+    console.log(JSONobj);
+    try {
+        const res = await fetch("http://localhost:8081/result", {
+            method: "POST", headers: {
+                "Content-Type": "application/json"
+            }, body: JSON.stringify(JSONobj), redirect: "follow"
+        })
+        window.location = res.url
+    } catch (e) {
+        console.log(e)
+    }
+
+    // socket.emit('handleForm', JSONobj);
+
+}
+
+// socket.on('updatedData',()=>{
+//     alert('success');
+//     form.reset();
+// })
 
