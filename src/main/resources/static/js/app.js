@@ -6,7 +6,7 @@ const alt_questions=[];
 const form = document.querySelector('form');
 const topicSection = document.querySelector('.topics');
 
-form.addEventListener('submit', handleForm);
+// form.addEventListener('submit', handleForm);
 const addTopic =(id)=>{
   return `
 <div class="form-row">

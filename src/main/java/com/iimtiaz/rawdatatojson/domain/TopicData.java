@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 class TopicData {
+    private String topicNumber;
     private String topicName;
     private List<ContentData> contents;
 }
