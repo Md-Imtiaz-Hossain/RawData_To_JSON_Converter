@@ -16,10 +16,15 @@ public class Home {
         return "index";
     }
 
-    @PostMapping("/submit-form")
+    @PostMapping("/result")
     public String submitForm(@RequestBody FormData formData, Model model) {
         System.out.println(formData);
         model.addAttribute("data", formData);
+        return "redirect:/view";
+    }
+
+    @GetMapping("/view")
+    public String view(Model model) {
         return "result";
     }
 
