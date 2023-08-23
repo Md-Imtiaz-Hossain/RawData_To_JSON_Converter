@@ -24,74 +24,78 @@
 </nav>
 
 <div class="form_Container container">
-    <form method="POST" th:action="@{/submit-form}" th:object="${data}">
+    <form method="POST" th:action="@{/submit-form}" th:object="${FormData}">
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Number</label>
-                <input th:field="*{unitNumber}" type="text" class="form-control" name="unit_Number" placeholder="Unit Number" required>
+                <input id="validationDefault01" th:field="*{unitNumber}" th:value="${FormData.unitNumber}" name="unitNumber"
+                       type="text" class="form-control" placeholder="Unit Number" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Name</label>
-                <input type="text" class="form-control" name="unit_Name" placeholder="Unit Name" required>
+                <input type="text" class="form-control" th:field="*{unitName}" th:value="${FormData.unitNumber}"
+                       name="unitNumber" placeholder="Unit Name" required>
             </div>
         </div>
 
-        <h4 onclick="addNewTopic()"><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>
-        <div class="topics">
-            <div class="topic topic0">
-                <div class="form-row">
-                    <div class="col-md-12 mb-3">
-                        <input type="text" class="form-control" id="topic_Name" name="topic_Name"
-                               placeholder="Topic Name" required>
-                    </div>
-                </div>
-                <!-- add content -->
+        <h4><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>
+        <!--        <h4 onclick="addNewTopic()"><strong>Add Topics <i class="fas fa-plus-circle icon"></i></strong></h4>-->
+<!--        <div class="topics">-->
+<!--            <div class="topic topic0">-->
+<!--                <div class="form-row">-->
+<!--                    <div class="col-md-12 mb-3">-->
+<!--                        <input th:field="*{topics.topicName}" th:value="${topics.topicName}" name="unitNumber" type="text"-->
+<!--                               class="form-control"-->
+<!--                               id="topic_Name" placeholder="Topic Name" required>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; add content &ndash;&gt;-->
 
-                <div class="add_Content_Fields">
-                    <h5><strong>Add Content <i class="fas fa-plus-circle icon content_Icon"></i></strong></h5>
-                    <div class="contents contents0">
-                        <div class="content">
-                            <div class="form-row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="validationDefault02">Text</label>
-                                    <input type="text" class="form-control" name="text" id="text" placeholder="Text"
-                                           required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationDefault03">text alt ( seperate by ';' )</label>
-                                    <input type="text" class="form-control" name="text_alt" id="text_alt"
-                                           placeholder="text_alt" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationDefault04">Question</label>
-                                    <input type="text" class="form-control" name="question" id="question"
-                                           placeholder="Question" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="col-md-12 mb-3 Alt_Questions">
-                                        <h5><strong>Alt Questions <i
-                                                class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="validationDefault05">Keywords</label>
-                                    <input type="text" class="form-control" name="keywords" id="keywords"
-                                           placeholder="Keywords" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="add_Content_Fields">-->
+<!--                    <h5><strong>Add Content <i class="fas fa-plus-circle icon content_Icon"></i></strong></h5>-->
+<!--                    <div class="contents contents0">-->
+<!--                        <div class="content">-->
+<!--                            <div class="form-row">-->
+<!--                                <div class="col-md-12 mb-3">-->
+<!--                                    <label for="validationDefault02">Text</label>-->
+<!--                                    <input type="text" class="form-control" th:field="*{}" th:value="${data.unitNumber}" name="unitNumber" id="validationDefault02" placeholder="Text"-->
+<!--                                           required>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="form-row">-->
+<!--                                <div class="col-md-6 mb-3">-->
+<!--                                    <label for="validationDefault03">text alt ( seperate by ';' )</label>-->
+<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="text_alt"-->
+<!--                                           placeholder="text_alt" required>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-6 mb-3">-->
+<!--                                    <label for="validationDefault04">Question</label>-->
+<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="question"-->
+<!--                                           placeholder="Question" required>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="form-row">-->
+<!--                                <div class="col-md-6 mb-3">-->
+<!--                                    <div class="col-md-12 mb-3 Alt_Questions">-->
+<!--                                        <h5><strong>Alt Questions <i-->
+<!--                                                class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-6 mb-3">-->
+<!--                                    <label for="validationDefault05">Keywords</label>-->
+<!--                                    <input type="text" class="form-control" th:field="*{unitName}" th:value="${data.unitNumber}" name="unitNumber" id="keywords"-->
+<!--                                           placeholder="Keywords" required>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
-            </div>
-        </div>
+<!--            </div>-->
+<!--        </div>-->
         <button class="btn btn-primary" type="submit">Submit form</button>
 
         <button class="btn btn-primary" type="reset">Reset form</button>

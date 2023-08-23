@@ -12,7 +12,9 @@ public class Home {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("data", new FormData());
+        model.addAttribute("FormData", new FormData());
+        model.addAttribute("TopicData", new TopicData());
+        model.addAttribute("ContentData", new ContentData());
         return "index";
     }
 
