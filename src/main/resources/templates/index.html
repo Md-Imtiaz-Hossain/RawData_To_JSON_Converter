@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Welcome</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+    <script crossorigin="anonymous"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <link crossorigin="anonymous" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/style/main.css}">
 </head>
 <body>
@@ -26,20 +25,20 @@
 </nav>
 
 <div class="form_Container container">
-    <form method="POST" enctype="application/x-www-form-urlencoded">
+    <form enctype="application/x-www-form-urlencoded" method="POST">
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Number</label>
-                <input type="text" class="form-control" name="unitNumber"
-                       placeholder="Unit Number" required>
+                <input class="form-control" name="unitNumber" placeholder="Unit Number"
+                       required type="text">
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Name</label>
-                <input type="text" class="form-control" name="unitName" placeholder="Unit Name"
-                       required>
+                <input class="form-control" name="unitName" placeholder="Unit Name" required
+                       type="text">
             </div>
         </div>
 
@@ -48,8 +47,8 @@
             <div class="topic topic0">
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
-                        <input type="text" class="form-control" id="topicName"
-                               name="topicName" placeholder="Topic Name" required>
+                        <input class="form-control" id="topicName" name="topicName"
+                               placeholder="Topic Name" required type="text">
                     </div>
                 </div>
                 <!-- add content -->
@@ -61,20 +60,20 @@
                             <div class="form-row">
                                 <div class="col-md-12 mb-3">
                                     <label for="validationDefault02">Text</label>
-                                    <input type="text" class="form-control" name="text"
-                                           id="text" placeholder="Text" required>
+                                    <input class="form-control" id="text" name="text"
+                                           placeholder="Text" required type="text">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
                                     <label for="validationDefault03">text alt ( seperate by ';' )</label>
-                                    <input type="text" class="form-control"
-                                           name="textAlt" id="textAlt" placeholder="textAlt" required>
+                                    <input class="form-control" id="textAlt"
+                                           name="textAlt" placeholder="textAlt" required type="text">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationDefault04">Question</label>
-                                    <input type="text" class="form-control"
-                                           name="question" id="question" placeholder="Question" required>
+                                    <input class="form-control" id="question"
+                                           name="question" placeholder="Question" required type="text">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -86,8 +85,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="validationDefault05">Keywords</label>
-                                    <input type="text" class="form-control"
-                                           name="keywords" id="keywords" placeholder="Keywords" required>
+                                    <input class="form-control" id="keywords"
+                                           name="keywords" placeholder="Keywords" required type="text">
                                 </div>
                             </div>
                         </div>

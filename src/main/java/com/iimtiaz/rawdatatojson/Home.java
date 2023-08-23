@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class Home {
 
+    FormData formData;
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("formData", new FormData());
@@ -20,13 +22,14 @@ public class Home {
     @PostMapping("/result")
     public String submitForm(@RequestBody FormData formData, Model model) {
         System.out.println(formData);
+        formData = formData;
         view(formData, model);
         return "redirect:/view";
     }
 
     @GetMapping("/view")
     public String view(FormData formData, Model model) {
-        model.addAttribute("f", formData);
+        model.addAttribute("formData", formData );
         return "result";
     }
 
