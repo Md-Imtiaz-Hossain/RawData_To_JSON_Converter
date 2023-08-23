@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +24,11 @@
 </nav>
 
 <div class="form_Container container">
-    <form method="POST">
+    <form method="POST" th:action="@{/submit-form}" th:object="${data}">
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Number</label>
-                <input type="text" class="form-control" name="unit_Number" placeholder="Unit Number" required>
+                <input th:field="*{unitNumber}" type="text" class="form-control" name="unit_Number" placeholder="Unit Number" required>
             </div>
         </div>
 

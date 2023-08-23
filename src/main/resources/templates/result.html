@@ -17,6 +17,7 @@
             justify-content: center;
             margin: 5px auto auto;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -63,8 +64,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>John Doe</td>
+            <tr th:each="d : ${data}">
+                <td th:text="${d.unitNumber}"></td>
                 <td>30</td>
             </tr>
             </tbody>
