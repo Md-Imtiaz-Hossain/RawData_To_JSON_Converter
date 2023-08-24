@@ -15,27 +15,23 @@ import java.nio.file.StandardOpenOption;
 @Controller
 public class Home {
 
-    FormData data;
-
-    @PostMapping("/result")
-    public String submitForm(@RequestBody FormData formData, Model model) {
-        System.out.println(formData);
-        data = formData;
-        saveJsonToTextFile(data);
-        view(formData, model);
-        return "redirect:/view";
-    }
-
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("formData", new FormData());
         return "index";
     }
 
+    @PostMapping("/result")
+    public String submitForm(@RequestBody FormData formData) {
+        System.out.println(formData);
+        saveJsonToTextFile(formData);
+        return "redirect:/view";
+    }
 
     @GetMapping("/view")
-    public String view(FormData formData, Model model) {
-        model.addAttribute("formData", data );
+    public String view(Model model) {
+        String jsonFromFile = readJsonFromTextFile();
+        model.addAttribute("formData", jsonFromFile);
         return "result";
     }
 
@@ -51,5 +47,14 @@ public class Home {
         }
     }
 
-
+    public String readJsonFromTextFile() {
+        String fileName = "data.txt";
+        Path filePath = Path.of(fileName);
+        try {
+            return Files.readString(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error reading JSON data from file.";
+        }
+    }
 }

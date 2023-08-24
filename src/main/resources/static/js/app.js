@@ -1,6 +1,5 @@
-// const socket = io();
+
 var topicsLength = 0;
-//consists topics array [topic[content[...]],..]
 const topics = [];
 const alt_questions = [];
 const form = document.querySelector('form');
@@ -15,7 +14,6 @@ const addTopic = (id) => {
         <input type="text" class="form-control" name="topicName" id="topicName"  placeholder="Topic Name" required>
     </div>
 </div>
-<!-- add content -->
 
 <div class="add_Content_Fields">
     <h5><strong>Add Content <i class="fas fa-plus-circle icon content_Icon"></i></strong></h5>
@@ -39,10 +37,10 @@ const addTopic = (id) => {
           </div>
           <div class="form-row">
             <div class="col-md-6 mb-3">
-                <div class="col-md-12 mb-3 Alt_Questions">
-              <h5><strong>Alt Questions <i class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>
-                </div>
+            <div class="col-md-12 mb-3 Alt_Questions">
+                <h5><strong>Alt Questions <i class="fas fa-plus-circle icon Alt_Questions_Icon"></i></strong></h5>
             </div>
+        </div>
             <div class="col-md-6 mb-3">
                 <label for="validationDefault05">Keywords</label>
                 <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Keywords" required>
@@ -136,7 +134,6 @@ const addNewTopic = () => {
 
     console.log(topicDiv);
 
-
     topicDiv.querySelector('.content_Icon').addEventListener('click', () => {
         const content = addContentTemplate(topicsLength);
         const contentDiv = document.createElement('div');
@@ -158,21 +155,19 @@ const addNewTopic = () => {
     })
 
     const Alt_questionEvent = topicDiv.querySelector('.Alt_Questions_Icon');
-    console.log(Alt_questionEvent);
     Alt_questionEvent.addEventListener('click', () => {
         const altDiv = document.createElement('div');
         altDiv.innerHTML = `
-    <input type="text" class="form-control" name="alt_questions" id="alt_questions" placeholder="Alt Question" required>
-    `;
+            <input type="text" class="form-control" name="alt_questions" placeholder="Alt Question" required>
+        `;
         topicDiv.querySelector('.Alt_Questions').appendChild(altDiv);
-    })
+    });
 
 }
 
 async function handleForm(e) {
     e.preventDefault();
     const val = e.target;
-    // let contents = [];
 
     const unitNumber = val.unitNumber.value;
     const unitName = val.unitName.value;
@@ -196,12 +191,11 @@ async function handleForm(e) {
             var textAlt = topicContents[j].querySelector('#textAlt');
             var question = topicContents[j].querySelector('#question');
             var keywords = topicContents[j].querySelector('#keywords');
-            var fields = topicContents[j].querySelectorAll('#altQuestions');
+            var fields = topicContents[j].querySelectorAll('#alt_questions');
 
             for (var k = 0; k < fields.length; k++) {
                 values.push(fields[k].value);
             }
-
 
             JsonTopicContents[j] = {
                 paragraph_id: j + 1,
@@ -211,12 +205,10 @@ async function handleForm(e) {
                 altQuestions: values,
                 keywords: keywords.value.split(';')
             }
-
         }
         topic = {topicNumber: i + 1, topicName, contents: JsonTopicContents};
         jsonTopics.push(topic);
     }
-    // console.log(jsonTopics);
     const JSONobj = {
         unitNumber,
         unitName,
@@ -234,13 +226,4 @@ async function handleForm(e) {
     } catch (e) {
         console.log(e)
     }
-
-    // socket.emit('handleForm', JSONobj);
-
 }
-
-// socket.on('updatedData',()=>{
-//     alert('success');
-//     form.reset();
-// })
-
