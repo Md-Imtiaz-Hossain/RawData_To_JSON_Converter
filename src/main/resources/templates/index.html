@@ -15,29 +15,42 @@
     <link rel="stylesheet" th:href="@{/style/main.css}">
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark justify-content-between">
-    <div class="container">
-        <a class="navbar-brand">FORM</a>
-        <div class="nav-item active">
-            <a class="nav-link" th:href="@{/result}">Admin View</a>
-        </div>
+
+<!--.............Header................-->
+<header>
+    <div class="header">
+        <a class="demo" href="">Web Studio</a>
+        <nav>
+            <a class="nav-links active" th:href="@{/}">Home</a>
+            <a class="nav-links" th:href="@{/result}">Admin View</a>
+        </nav>
     </div>
-</nav>
+</header>
+<hr/>
+
+<!--<nav class="navbar navbar-dark bg-dark justify-content-between">-->
+<!--    <div class="container">-->
+<!--        <a class="navbar-brand">FORM</a>-->
+<!--        <div class="nav-item active">-->
+<!--            <a class="nav-link" th:href="@{/result}">Admin View</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 <div class="form_Container container">
     <form enctype="application/x-www-form-urlencoded" method="POST">
         <div class="form-row">
             <div class="col-md-12 mb-3">
                 <label for="validationDefault01">Unit Number</label>
-                <input class="form-control" name="unitNumber" placeholder="Unit Number"
+                <input id="validationDefault01" class="form-control" name="unitNumber" placeholder="Unit Number"
                        required type="text">
             </div>
         </div>
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
-                <label for="validationDefault01">Unit Name</label>
-                <input class="form-control" name="unitName" placeholder="Unit Name" required
+                <label for="validationDefault02">Unit Name</label>
+                <input id="validationDefault02" class="form-control" name="unitName" placeholder="Unit Name" required
                        type="text">
             </div>
         </div>
@@ -59,19 +72,19 @@
                         <div class="content">
                             <div class="form-row">
                                 <div class="col-md-12 mb-3">
-                                    <label for="validationDefault02">Text</label>
-                                    <input class="form-control" id="text" name="text"
+                                    <label for="text">Text</label>
+                                    <input  class="form-control" id="text" name="text"
                                            placeholder="Text" required type="text">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault03">text alt ( seperate by ';' )</label>
+                                    <label for="textAlt">text alt ( seperate by ';' )</label>
                                     <input class="form-control" id="textAlt"
                                            name="textAlt" placeholder="textAlt" required type="text">
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault04">Question</label>
+                                    <label for="question">Question</label>
                                     <input class="form-control" id="question"
                                            name="question" placeholder="Question" required type="text">
                                 </div>
@@ -84,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="validationDefault05">Keywords</label>
+                                    <label for="keywords">Keywords</label>
                                     <input class="form-control" id="keywords"
                                            name="keywords" placeholder="Keywords" required type="text">
                                 </div>
@@ -96,11 +109,9 @@
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Submit form</button>
-
         <button class="btn btn-primary" type="reset">Reset form</button>
     </form>
 </div>
-
 <script th:src="@{/js/app.js}"></script>
 </body>
 </html>

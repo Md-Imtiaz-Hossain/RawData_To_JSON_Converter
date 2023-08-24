@@ -5,10 +5,51 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>JSON</title>
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        table {
+            width: 60%;
+            max-width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table-title {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<p th:text="${formData}"></p>
+<div class="table-container">
+    <table>
+        <caption class="table-title">Form Data</caption>
+        <thead>
+        <tr>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate through formData and add each element to a new row -->
+        <tr th:each="data : ${formData}">
+            <td th:text="${data}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
