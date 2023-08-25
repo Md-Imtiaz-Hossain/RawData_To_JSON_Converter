@@ -1,4 +1,4 @@
-package com.iimtiaz.rawdatatojson.domain;
+package com.java.rawdatatojson.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.iimtiaz.rawdatatojson;
+package com.java.rawdatatojson;
 
-import com.iimtiaz.rawdatatojson.domain.FormData;
+import com.java.rawdatatojson.domain.FormData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
