@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Pacifico&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: sans-serif;
+}
+
+body, div, a, p, h1, h2, h3, h6 {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ccc;
+    border: 1px solid gray;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/*.......Header........*/
+/*.....................*/
+
+.header {
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 10px;
+
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-links {
+    text-decoration: none;
+    padding: 5px;
+    font-size: 20px;
+    color: rgb(32, 32, 32);
+    transition: color 0.2s ease-in;
+}
+
+.nav-links:hover,
+.nav-links:active {
+    color: #fe8e5e;
+}
+
+.demo {
+    text-decoration: none;
+    margin-top: 12px;
+    font-size: 30px;
+}
+
+.active {
+    color: #fe8e5e;
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.social-media {
+    transition: scale 0.2s ease-in;
+}
+
+.social-media:hover,
+.social-media:active {
+    scale: 1.25;
+}
+
+
+.form_Container {
+    background-color: rgb(189, 189, 189);
+    padding: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 550px;
+}
+
+.topic {
+    background-color: rgb(255, 174, 67);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.icon {
+    color: #f12562;
+    cursor: pointer;
+}
+
+
+.content {
+    background-color: rgba(140, 255, 220, 0.514);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/*----------------- Form Styles ------------------*/
+
+/* Container Styles */
+.form_Container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 550px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.form_Container:hover {
+    transform: scale(1.006);
+}
+
+/* Topic Styles */
+.topic {
+    background-color: #fde8d0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topic h4 {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* Content Styles */
+.content {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Icon Styles */
+.icon {
+    color: #f12562;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.icon:hover {
+    color: #e58eb9;
+    transform: scale(1.4);
+}
+
+/* Input Styles */
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #fe8e5e;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #fe8e5e;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #d0174d;
+}
+
+/*------------------ Responsive Styles ------------------*/
+
+/* Larger Screens */
+@media (min-width: 768px) {
+    .form_Container {
+        max-width: 70%;
+    }
+}
+
+/* Medium Screens */
+@media (max-width: 768px) {
+    .form_Container {
+        max-width: 80%;
+    }
+}
+
+/* Small Screens */
+@media (max-width: 576px) {
+    .form_Container {
+        max-width: 90%;
+    }
+}
